@@ -1,0 +1,457 @@
+body {
+    font-family: "Host Grotesk", 'Single Day', sans-serif;
+    background-color: #ffffff;
+    color: #2d3780;
+}
+
+#home {
+    background-image: url("../day_back.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
+.foreground {
+    position: static;
+    height: 100vh;
+    background-image: url("../day_front.png");
+    background-size: cover;
+}
+
+.hero {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0.5vh;
+    z-index: -1;
+}
+
+.about {
+    position: relative;
+    padding: 1%;
+    background-image: linear-gradient(#F7BECE, #f4a1c5);
+    z-index: 1;
+}
+
+.me {
+    width: 30vw;
+    margin: auto;
+    padding: 2%;
+    position: relative;
+    background-color: white;
+}
+
+.me img {
+    padding-bottom: 2%;
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0px;
+    background-color: #FFFFFF;
+    padding: 1%;
+    z-index: 10;
+}
+
+nav a:link,
+nav a:visited {
+    text-decoration: none;
+    color: #2d3780;
+    padding: 1%;
+}
+
+.home-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+}
+
+
+.draggable {
+    position: absolute;
+    z-index: 9;
+    text-align: center;
+    cursor: pointer;
+    width: 10%;
+}
+
+#box {
+    left: 30vw;
+    top: 110vh;
+}
+
+#busan-sticker {
+    left: 32vw;
+    top: 150vh;
+}
+
+#chitari {
+    left: 50vw;
+    top: 120vh;
+}
+
+#hat {
+    left: 62vw;
+    top: 140vh;
+}
+
+#sogeumbbang {
+    left: 60vw;
+    top: 175vh;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 24px;
+    padding: 2%;
+    width: 65vw;
+    margin: 0 auto;
+}
+
+.like-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(#ff8aaa63, #ffcd9895);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1;
+}
+
+#exo .like-overlay {
+    background-image: linear-gradient(#f8dca963, #fffada95);
+}
+
+#svt .like-overlay {
+    background-image: linear-gradient(#f9b1c463, #98a9ff95);
+}
+
+#dream .like-overlay {
+    background-image: linear-gradient(#99faa963, #e5ff9895);
+}
+
+.like-overlay.liked {
+    opacity: 1;
+}
+
+.insta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.user {
+    transform: translateY(-100%);
+    opacity: 0;
+
+}
+
+.caption {
+    transform: translateY(100%);
+    opacity: 0;
+    margin-top: auto;
+}
+
+.user,
+.caption {
+    padding: 5%;
+    background-color: #ffffff;
+    width: 100%;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.gallery-img {
+    position: relative;
+    overflow: hidden;
+    max-height: 40vh;
+    transition: transform 0.5s ease-in-out;
+}
+
+.gallery-img:hover,
+.gallery-img:focus {
+    transform: scale(1.05);
+    outline: #2d3780 1px solid;
+
+    .user,
+    .caption {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.progress-header {
+    position: fixed;
+    top: 500;
+    z-index: 1;
+    width: 100%;
+}
+
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: #efebeb;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #ff7399;
+    width: 0%;
+}
+
+.page-note,
+.place-note {
+    padding: 2%;
+    width: 65vw;
+    margin: 0 auto;
+}
+
+.place-note {
+    padding-bottom: 0%;
+}
+
+.place-screen {
+    width: 100vw;
+    height: auto;
+    padding: 5%;
+}
+
+#hongdae {
+    background-image: linear-gradient(#f1ddd0, #f4cdcf);
+}
+
+#jongno {
+    background-image: linear-gradient(#f4cdcf, #f5c6cf);
+}
+
+#seongsu {
+    background-image: linear-gradient(#f5c6cf, #eab4c4);
+}
+
+#busan {
+    background-image: linear-gradient(#eab4c4, #f4a1c5);
+}
+
+.album-cover {
+    width: 4vw;
+    transition: transform 0.5s ease-in-out;
+}
+
+.concerts-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 75%;
+    padding: 5%;
+    gap: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto;
+}
+
+.concert-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateY(-100%);
+    overflow: scroll;
+    height: 60vh;
+    width: 65vw;
+    opacity: 0;
+    visibility: hidden;
+    background-color: #FFFFFF;
+    transition: transform 0.35s ease-in-out, opacity 0.35s ease-in-out;
+}
+
+
+.ipod {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 1%;
+    width: 15vw;
+    transition: transform 0.5s ease-in-out;
+}
+
+.ipod:hover,
+.ipod:focus {
+    transform: scale(1.1);
+    outline: #2d3780 1px solid;
+    cursor: pointer;
+}
+
+.ipod:focus {
+    .album-title p {
+        width: 100%;
+        animation: scroll 5s linear infinite;
+    }
+}
+
+.album-title {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 50%;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.concert-img {
+    padding: 2% 0 2% 0;
+}
+
+.big-player {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.big-cover {
+    width: auto;
+    flex-shrink: 0;
+    margin-bottom: 2%;
+    cursor: pointer;
+}
+
+.big-cover img {
+    width: 7vw;
+    height: auto;
+}
+
+.concert-details {
+    flex-grow: 1;
+    margin-left: 2%;
+    top: 0;
+}
+
+.concert-screen.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) translateY(0);
+}
+
+.concert-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) translateY(-100%);
+}
+
+.concert-hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* address prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        /* remove animations */
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+/* address prefers-color-scheme,
+modify element colors for dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #22274a;
+        color: #fef7cb;
+    }
+
+    #home {
+        background-image: linear-gradient(#fffeff, #dfffff);
+        background-image: url("../night_back.png");
+    }
+
+    .about {
+        background-image: linear-gradient(#2f376d, #171f4c);
+    }
+
+    .me {
+        background-color: #2f376d;
+    }
+
+    .sticky-header {
+        background-color: #22274a;
+    }
+
+    .foreground {
+        background-image: url("../night_front.png");
+    }
+
+    nav a:link,
+    nav a:visited {
+        color: #fef7cb;
+    }
+
+    .user,
+    .caption {
+        background-color: #2f376d;
+    }
+
+    .gallery-img:hover,
+    .gallery-img:focus {
+        outline: #fef7cb 1px solid;
+    }
+
+    .like-overlay {
+        background-image: linear-gradient(#d097c88b, #3c5c9c6d);
+    }
+
+    .progress-container {
+        background: #fef7cb;
+    }
+
+    .progress-bar {
+        background: #e36986;
+    }
+
+    #hongdae {
+        background-image: linear-gradient(#B681AE, #8D71A2);
+    }
+
+    #jongno {
+        background-image: linear-gradient(#8D71A2, #625A96);
+    }
+
+    #seongsu {
+        background-image: linear-gradient(#625A96, #404879);
+    }
+
+    #busan {
+        background-image: linear-gradient(#404879, #2f376d);
+    }
+
+    .concert-screen {
+        background-color: #22274a;
+    }
+
+    .ipod:hover,
+    .ipod:focus {
+        outline: #fef7cb 1px solid;
+    }
+}
