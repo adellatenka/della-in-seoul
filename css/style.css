@@ -60,6 +60,13 @@ nav a:visited {
     padding: 1%;
 }
 
+nav a:hover,
+nav a:visited.active {
+    color: #e36986;
+    text-decoration: underline;
+    transition: 0.5s ease-in-out;
+}
+
 .home-title {
     position: absolute;
     top: 50%;
@@ -203,7 +210,7 @@ nav a:visited {
 .progress-container {
     width: 100%;
     height: 8px;
-    background: #efebeb;
+    background: #f6e4e4;
 }
 
 .progress-bar {
@@ -407,7 +414,9 @@ modify element colors for dark mode */
     nav a:visited {
         color: #fef7cb;
     }
-
+    nav a:hover, nav a:visited.active{
+        color: #f7a3b6;
+    }
     .user,
     .caption {
         background-color: #2f376d;
