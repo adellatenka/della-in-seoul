@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const audio = document.getElementById(audioId);
 
         cover.addEventListener('mousedown', () => {
+            // if the image at the top of the concert screen box is clicked, pause/play music
             if (!audio.paused && audio.currentTime > 0 && !audio.ended) {
                 audio.pause();
             } else {
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const ipodId = cover.id.replace('cover', 'ipod');
         const ipod = document.getElementById(ipodId);
         ipod.addEventListener('keydown', function (event) {
+            // if enter is hit on any of the concert buttons then open the screen (for keyboard accessibility)
             if (event.key === 'Enter') {
                 const concertId = cover.id.replace('-cover', '');
                 toggleConcert(concertId);
@@ -22,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         cover.addEventListener('keydown', function (event) {
+            // enter key also triggers music pause/play if the photo is tabbed on
             if (event.key === 'Enter') {
                 if (!audio.paused && audio.currentTime > 0 && !audio.ended) {
                     audio.pause();
@@ -49,7 +52,6 @@ function toggleConcert(concert_id) {
 function hideConcert(concert_id) {
     var concert = document.getElementById(concert_id);
 
-
     const audioId = concert_id + '-mp3';
     const audio = document.getElementById(audioId);
 
@@ -63,13 +65,12 @@ function hideConcert(concert_id) {
 }
 
 function showConcert(concert_id) {
-    var i, tabcontent;
+    var i, pages;
 
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("concert-screen");
-    for (i = 0; i < tabcontent.length; i++) {
-        if (tabcontent[i].id !== concert_id) {
-            hideConcert(tabcontent[i].id);
+    pages = document.getElementsByClassName("concert-screen");
+    for (i = 0; i < pages.length; i++) {
+        if (pages[i].id !== concert_id) {
+            hideConcert(pages[i].id);
         }
     }
 
