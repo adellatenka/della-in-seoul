@@ -2,13 +2,16 @@ body {
     font-family: "Host Grotesk", 'Single Day', sans-serif;
     background-color: #ffffff;
     color: #2d3780;
+    font-size: clamp(12px, 1vw, 24px);
 }
 
 #home {
     background-image: url("../day_back.png");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100vh;
     background-attachment: fixed;
+    background-position: center bottom;
+    height: 100vh;
 }
 
 .foreground {
@@ -18,6 +21,7 @@ body {
     background-size: cover;
 }
 
+/* hero div for homepage */
 .hero {
     height: 100vh;
     width: 100vw;
@@ -34,7 +38,7 @@ body {
 }
 
 .me {
-    width: 30vw;
+    width: 50vw;
     margin: auto;
     padding: 2%;
     position: relative;
@@ -45,6 +49,7 @@ body {
     padding-bottom: 2%;
 }
 
+/* navbar */
 .sticky-header {
     position: sticky;
     top: 0px;
@@ -53,6 +58,7 @@ body {
     z-index: 10;
 }
 
+/* style navbar links */
 nav a:link,
 nav a:visited {
     text-decoration: none;
@@ -74,7 +80,7 @@ nav a:visited.active {
     transform: translate(-50%, -50%) rotate(-5deg);
 }
 
-
+/* wrapper for draggable stickers */
 .draggable {
     position: absolute;
     z-index: 9;
@@ -83,34 +89,41 @@ nav a:visited.active {
     width: 10%;
 }
 
+/* initial position of stickers (mobile) */
 #box {
-    left: 30vw;
-    top: 110vh;
+    position: absolute;
+    left: 20%;
+    top: 120%;
 }
 
 #busan-sticker {
-    left: 32vw;
-    top: 150vh;
+    position: absolute;
+    left: 15%;
+    top: 140%;
 }
 
 #chitari {
-    left: 50vw;
-    top: 120vh;
+    position: absolute;
+    left: 50%;
+    top: 110%;
 }
 
 #hat {
-    left: 62vw;
-    top: 140vh;
+    position: absolute;
+    left: 70%;
+    top: 130%;
 }
 
 #sogeumbbang {
-    left: 60vw;
-    top: 175vh;
+    position: absolute;
+    left: 75%;
+    top: 150%;
 }
 
+/* grid for all galleries */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-template-rows: auto;
     gap: 24px;
     padding: 2%;
@@ -118,6 +131,7 @@ nav a:visited.active {
     margin: 0 auto;
 }
 
+/* color overlay when double-clicking gallery images */
 .like-overlay {
     position: absolute;
     top: 0;
@@ -131,6 +145,7 @@ nav a:visited.active {
     z-index: 1;
 }
 
+/* change overlay color based on concert */
 #exo .like-overlay {
     background-image: linear-gradient(#f8dca963, #fffada95);
 }
@@ -147,6 +162,7 @@ nav a:visited.active {
     opacity: 1;
 }
 
+/* wrapper for location and caption which slides on images on focus/hover*/
 .insta-overlay {
     position: absolute;
     top: 0;
@@ -161,10 +177,9 @@ nav a:visited.active {
     overflow: hidden;
 }
 
-.user {
+.location {
     transform: translateY(-100%);
     opacity: 0;
-
 }
 
 .caption {
@@ -173,7 +188,7 @@ nav a:visited.active {
     margin-top: auto;
 }
 
-.user,
+.location,
 .caption {
     padding: 5%;
     background-color: #ffffff;
@@ -188,18 +203,20 @@ nav a:visited.active {
     transition: transform 0.5s ease-in-out;
 }
 
+/* interactive animations for gallery images */
 .gallery-img:hover,
 .gallery-img:focus {
     transform: scale(1.05);
     outline: #2d3780 1px solid;
 
-    .user,
+    .location,
     .caption {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+/* for progress bar on "pretty places" page */
 .progress-header {
     position: fixed;
     top: 500;
@@ -219,6 +236,7 @@ nav a:visited.active {
     width: 0%;
 }
 
+/* container for the heading for each page, and the subheadings for "pretty places" page */
 .page-note,
 .place-note {
     padding: 2%;
@@ -236,6 +254,7 @@ nav a:visited.active {
     padding: 5%;
 }
 
+/* gradient backgrounds for places */
 #hongdae {
     background-image: linear-gradient(#f1ddd0, #f4cdcf);
 }
@@ -252,6 +271,7 @@ nav a:visited.active {
     background-image: linear-gradient(#eab4c4, #f4a1c5);
 }
 
+/* for concert options at bottom row of page */
 .album-cover {
     width: 4vw;
     transition: transform 0.5s ease-in-out;
@@ -270,6 +290,7 @@ nav a:visited.active {
     margin: 0 auto;
 }
 
+/* pop-up concert screen */
 .concert-screen {
     position: absolute;
     top: 50%;
@@ -284,7 +305,7 @@ nav a:visited.active {
     transition: transform 0.35s ease-in-out, opacity 0.35s ease-in-out;
 }
 
-
+/* for the concet buttons in the row */
 .ipod {
     display: flex;
     align-items: flex-start;
@@ -308,6 +329,7 @@ nav a:visited.active {
     }
 }
 
+/* marquee concert titles */
 .album-title {
     overflow: hidden;
     white-space: nowrap;
@@ -328,6 +350,7 @@ nav a:visited.active {
     padding: 2% 0 2% 0;
 }
 
+/* for the "cover" image on the pop-up concert screen */
 .big-player {
     display: flex;
     align-items: flex-start;
@@ -352,6 +375,7 @@ nav a:visited.active {
     top: 0;
 }
 
+/* toggles concert screens when corresponding option is clicked */
 .concert-screen.visible {
     opacity: 1;
     visibility: visible;
@@ -371,6 +395,60 @@ nav a:visited.active {
     transform: translate(-50%, -50%);
 }
 
+/* tablet view */
+@media (min-width: 600px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #home {
+        background-position: center 75%;
+        background-size: 100%;
+    }
+
+}
+
+/* desktop view */
+@media (min-width: 801px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .me {
+        width: 30vw;
+    }
+
+    #box {
+        position: absolute;
+        left: 30vw;
+        top: 110vh;
+    }
+
+    #busan-sticker {
+        position: absolute;
+        left: 32vw;
+        top: 150vh;
+    }
+
+    #chitari {
+        position: absolute;
+        left: 50vw;
+        top: 120vh;
+    }
+
+    #hat {
+        position: absolute;
+        left: 62vw;
+        top: 140vh;
+    }
+
+    #sogeumbbang {
+        position: absolute;
+        left: 60vw;
+        top: 175vh;
+    }
+}
+
 /* address prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
     * {
@@ -382,7 +460,7 @@ nav a:visited.active {
 }
 
 /* address prefers-color-scheme,
-modify element colors for dark mode */
+modifying element colors for dark mode */
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #22274a;
@@ -414,10 +492,13 @@ modify element colors for dark mode */
     nav a:visited {
         color: #fef7cb;
     }
-    nav a:hover, nav a:visited.active{
+
+    nav a:hover,
+    nav a:visited.active {
         color: #f7a3b6;
     }
-    .user,
+
+    .location,
     .caption {
         background-color: #2f376d;
     }
